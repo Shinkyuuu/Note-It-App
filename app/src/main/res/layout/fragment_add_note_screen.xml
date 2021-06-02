@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context=".views.fragments.AddNoteScreen"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/dark_gray"
+        android:hint="Title"
+        app:counterEnabled="true"
+        android:textColorHint="@color/orange"
+        app:boxStrokeWidth="0dp"
+        app:counterMaxLength="30"
+        app:boxStrokeWidthFocused="0dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dark_gray"
+            android:gravity="top|left"
+            android:inputType="text"
+            android:maxLength="30"
+            android:lines="1"
+            android:scrollbars="vertical"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/dark_gray"
+        android:hint="Note It!"
+        android:textColorHint="@color/orange"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/dark_gray"
+            android:gravity="top|left"
+            android:inputType="textCapSentences|textMultiLine"
+            android:lines="90"
+            android:maxLength="3000"
+            android:scrollbars="vertical"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:windowSoftInputMode="adjustPan" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>
