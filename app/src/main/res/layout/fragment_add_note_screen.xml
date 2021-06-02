@@ -8,15 +8,25 @@
     tools:context=".views.fragments.AddNoteScreen"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/createNoteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="@drawable/note_bg_purple"
+        android:background="@drawable/ripple_add_note_bg"
+        android:layout_margin="10dp"
+        android:layout_gravity="end"/>
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/noteTitleLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="10dp"
         android:background="@color/dark_gray"
         android:hint="Title"
+        app:counterTextColor="@color/purple"
         app:counterEnabled="true"
         android:textColorHint="@color/orange"
         app:boxStrokeWidth="0dp"
@@ -24,10 +34,11 @@
         app:boxStrokeWidthFocused="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/noteTitleEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/dark_gray"
-            android:gravity="top|left"
+            android:gravity="start"
             android:inputType="text"
             android:maxLength="30"
             android:lines="1"
@@ -37,6 +48,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/noteBodyLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -44,15 +56,16 @@
         android:layout_marginRight="10dp"
         android:background="@color/dark_gray"
         android:hint="Note It!"
-        android:textColorHint="@color/orange"
+        android:textColorHint="@color/green"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/noteBodyEditText"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:background="@color/dark_gray"
-            android:gravity="top|left"
+            android:gravity="start"
             android:inputType="textCapSentences|textMultiLine"
             android:lines="90"
             android:maxLength="3000"

@@ -10,7 +10,7 @@ import com.example.notes.repositories.NoteRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivityVM(app: Application) : AndroidViewModel(app) {
+class NoteVM(app: Application) : AndroidViewModel(app) {
     private val readAllNotes: LiveData<List<Note>>
     private val repo: NoteRepo
 
