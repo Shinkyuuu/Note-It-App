@@ -29,7 +29,7 @@ class MainScreen : Fragment() {
     }
 
     private fun init() {
-        val list = generateItem(200)
+        val list = generateItem(20)
         addNoteScreenListener()
         recyclerviewInit(list)
     }

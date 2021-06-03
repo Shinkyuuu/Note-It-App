@@ -37,11 +37,20 @@ class AddNoteScreen : Fragment() {
 
     private fun init() {
         createNoteBtnLstnr()
+        addNoteBackBtnlstnr()
+
+        binding.todaysDate.text = getCurrentDate()
     }
 
     private fun createNoteBtnLstnr() {
         binding.createNoteBtn.setOnClickListener{
             createNote()
+        }
+    }
+
+    private fun addNoteBackBtnlstnr() {
+        binding.addNoteBackBtn.setOnClickListener{
+            findNavController().navigate(R.id.action_addNoteScreen3_to_mainScreen)
         }
     }
 
