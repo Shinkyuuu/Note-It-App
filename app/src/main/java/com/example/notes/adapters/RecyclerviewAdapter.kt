@@ -12,17 +12,18 @@ import com.example.notes.databinding.NoteLayoutBinding
 import com.example.notes.objects.Note
 import com.example.notes.views.fragments.MainScreen
 
-class RecyclerviewAdapter(private val exampleList: List<Note>, val context: MainScreen) : RecyclerView.Adapter<RecyclerviewAdapter.RecycleviewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecycleviewHolder {
+class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<RecyclerviewAdapter.RecyclerviewHolder>() {
+    private var noteList = emptyList<Note>()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewHolder {
         val binding = NoteLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RecycleviewHolder(binding)
+        return RecyclerviewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecycleviewHolder, position: Int) {
-        val currentItem = exampleList[position]
+    override fun onBindViewHolder(holder: RecyclerviewHolder, position: Int) {
+        val currentItem = noteList[position]
         holder.titleView.text = currentItem.title
         holder.dateView.text = currentItem.date
-        holder.colorView.setBackground(generateColor(currentItem.color))
+        holder.colorView.background = generateColor(currentItem.color)
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -37,9 +38,14 @@ class RecyclerviewAdapter(private val exampleList: List<Note>, val context: Main
         }
     }
 
-    override fun getItemCount() = exampleList.size
+    fun setNoteData(noteList: List<Note>) {
+        this.noteList = noteList
+        notifyDataSetChanged()
+    }
 
-    class RecycleviewHolder(binding: NoteLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    override fun getItemCount() = noteList.size
+
+    class RecyclerviewHolder(binding: NoteLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         val titleView: TextView = binding.noteTitle
         val dateView: TextView = binding.noteDate
         val colorView: RelativeLayout = binding.noteColor

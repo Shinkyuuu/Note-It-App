@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -15,6 +16,7 @@ import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
 class MainScreen : Fragment() {
+    private lateinit var noteVM: NoteVM
     private var _binding : FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
 
@@ -22,16 +24,21 @@ class MainScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //Viewmodel
+        noteVM = ViewModelProvider(this).get(NoteVM::class.java)
+
+        //View binding
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         init()
 
         return binding.root
     }
 
+
     private fun init() {
-        val list = generateItem(20)
+        //val list = generateItem(20)
         addNoteScreenListener()
-        recyclerviewInit(list)
+        recyclerviewInit()
     }
 
     private fun addNoteScreenListener() {
@@ -40,12 +47,17 @@ class MainScreen : Fragment() {
         }
     }
 
-    private fun recyclerviewInit(noteList : ArrayList<Note>) {
-        binding.recyclerView.adapter = RecyclerviewAdapter(noteList, this)
+    private fun recyclerviewInit() {
+        val adapter = RecyclerviewAdapter(this)
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         }
         binding.recyclerView.setHasFixedSize(true)
+
+        noteVM.readAllNotes.observe(viewLifecycleOwner, { updatedNotes ->
+            adapter.setNoteData(updatedNotes)
+        })
     }
 
     private fun generateItem (max: Int) : ArrayList<Note> {
