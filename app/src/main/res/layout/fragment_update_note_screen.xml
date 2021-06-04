@@ -44,7 +44,7 @@
         app:counterEnabled="true"
         android:textColorHint="@color/orange"
         app:boxStrokeWidth="0dp"
-        app:counterMaxLength="30"
+        app:counterMaxLength="100"
         app:boxStrokeWidthFocused="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -54,7 +54,7 @@
             android:background="@color/dark_gray"
             android:gravity="start"
             android:inputType="text"
-            android:maxLength="30"
+            android:maxLength="100"
             android:lines="1"
             android:scrollbars="vertical"
             android:textColor="@color/white"

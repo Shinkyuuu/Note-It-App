@@ -27,16 +27,11 @@ class AddNoteScreen : Fragment() {
         _binding = FragmentAddNoteScreenBinding.inflate(inflater, container, false)
         noteVM = ViewModelProvider(this).get(NoteVM::class.java)
 
-        init()
-
-        return binding.root
-    }
-
-    private fun init() {
+        binding.todaysDate.text = CurrentDate().currentDate()
         createNoteBtnLstnr()
         addNoteBackBtnlstnr()
 
-        binding.todaysDate.text = CurrentDate().currentDate()
+        return binding.root
     }
 
     private fun createNoteBtnLstnr() {
@@ -56,13 +51,13 @@ class AddNoteScreen : Fragment() {
         val noteBody = binding.noteBodyEditText.text.toString()
         val noteDate = binding.todaysDate.text.toString()
         val noteColor = "blue"
-         val newNote = Note(0, noteTitle, noteBody, noteDate, noteColor)
 
         if (checkInput(noteTitle, noteBody)) {
-            noteVM.addNote(newNote)
-            Toast.makeText(requireContext(), "Noted!", Toast.LENGTH_SHORT).show()
+            val newNote = Note(0, noteTitle, noteBody, noteDate, noteColor)
 
+            noteVM.addNote(newNote)
             findNavController().navigate(R.id.action_addNoteScreen_to_mainScreen)
+            Toast.makeText(requireContext(), "Noted!", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(requireContext(), "Forgetting something?", Toast.LENGTH_SHORT).show()
         }
@@ -72,11 +67,8 @@ class AddNoteScreen : Fragment() {
         if (title.isEmpty() && body.isEmpty()) {
             return false
         }
-
         return true
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

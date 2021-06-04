@@ -25,4 +25,10 @@ class NoteVM(app: Application) : AndroidViewModel(app) {
             repo.addNote(note)
         }
     }
+
+    fun updateNote(note: Note) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.updateNote(note)
+        }
+    }
 }
