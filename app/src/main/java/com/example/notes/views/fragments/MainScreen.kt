@@ -23,19 +23,18 @@ class MainScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //Viewmodel
+        //ViewModel
         noteVM = ViewModelProvider(this).get(NoteVM::class.java)
 
         //View binding
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
-        init()
 
+        init()
         return binding.root
     }
 
 
     private fun init() {
-        //val list = generateItem(20)
         addNoteScreenListener()
         recyclerviewInit()
     }
