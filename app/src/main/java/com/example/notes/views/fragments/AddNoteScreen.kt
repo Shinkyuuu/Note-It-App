@@ -10,10 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.notes.R
 import com.example.notes.databinding.FragmentAddNoteScreenBinding
+import com.example.notes.objects.CurrentDate
 import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 class AddNoteScreen : Fragment() {
     private lateinit var noteVM : NoteVM
@@ -37,7 +36,7 @@ class AddNoteScreen : Fragment() {
         createNoteBtnLstnr()
         addNoteBackBtnlstnr()
 
-        binding.todaysDate.text = getCurrentDate()
+        binding.todaysDate.text = CurrentDate().currentDate()
     }
 
     private fun createNoteBtnLstnr() {
@@ -55,7 +54,7 @@ class AddNoteScreen : Fragment() {
     private fun createNote() {
         val noteTitle = binding.noteTitleEditText.text.toString()
         val noteBody = binding.noteBodyEditText.text.toString()
-        val noteDate = getCurrentDate()
+        val noteDate = binding.todaysDate.text.toString()
         val noteColor = "blue"
          val newNote = Note(0, noteTitle, noteBody, noteDate, noteColor)
 
@@ -77,11 +76,7 @@ class AddNoteScreen : Fragment() {
         return true
     }
 
-    private fun getCurrentDate() : String {
-        val currentDate = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("MMM d yyyy")
-        return currentDate.format(formatter)
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
