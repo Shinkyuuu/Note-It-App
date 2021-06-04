@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.databinding.NoteLayoutBinding
 import com.example.notes.objects.Note
 import com.example.notes.views.fragments.MainScreen
+import com.example.notes.views.fragments.MainScreenDirections
 
 class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<RecyclerviewAdapter.RecyclerviewHolder>() {
     private var noteList = emptyList<Note>()
@@ -24,6 +27,12 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         holder.titleView.text = currentItem.title
         holder.dateView.text = currentItem.date
         holder.colorView.background = generateColor(currentItem.color)
+
+        holder.bodyView.setOnClickListener {
+            val action = MainScreenDirections.actionMainScreenToUpdateNoteScreen(currentItem)
+
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
@@ -49,5 +58,6 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         val titleView: TextView = binding.noteTitle
         val dateView: TextView = binding.noteDate
         val colorView: RelativeLayout = binding.noteColor
+        val bodyView: CardView = binding.note
     }
 }

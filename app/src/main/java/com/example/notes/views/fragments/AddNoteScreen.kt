@@ -1,13 +1,11 @@
 package com.example.notes.views.fragments
 
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.notes.R
@@ -50,7 +48,7 @@ class AddNoteScreen : Fragment() {
 
     private fun addNoteBackBtnlstnr() {
         binding.addNoteBackBtn.setOnClickListener{
-            findNavController().navigate(R.id.action_addNoteScreen3_to_mainScreen)
+            findNavController().navigate(R.id.action_addNoteScreen_to_mainScreen)
         }
     }
 
@@ -65,7 +63,7 @@ class AddNoteScreen : Fragment() {
             noteVM.addNote(newNote)
             Toast.makeText(requireContext(), "Noted!", Toast.LENGTH_SHORT).show()
 
-            findNavController().navigate(R.id.action_addNoteScreen3_to_mainScreen)
+            findNavController().navigate(R.id.action_addNoteScreen_to_mainScreen)
         } else {
             Toast.makeText(requireContext(), "Forgetting something?", Toast.LENGTH_SHORT).show()
         }

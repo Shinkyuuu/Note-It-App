@@ -2,7 +2,6 @@ package com.example.notes.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
 import com.example.notes.R
 
 class MainActivity : AppCompatActivity() {
