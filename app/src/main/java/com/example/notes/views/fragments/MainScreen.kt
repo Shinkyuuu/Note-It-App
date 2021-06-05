@@ -25,26 +25,22 @@ class MainScreen : Fragment() {
     ): View {
         //ViewModel
         noteVM = ViewModelProvider(this).get(NoteVM::class.java)
-
-        //View binding
+        //ViewBinding
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
-        init()
+        addNoteScreenListener()
+        recyclerviewInit()
         return binding.root
     }
 
-
-    private fun init() {
-        addNoteScreenListener()
-        recyclerviewInit()
-    }
-
+    //After pressing createNoteBtn, navigate to addNoteScreen
     private fun addNoteScreenListener() {
-        binding.addNoteBtn.setOnClickListener {
+        binding.createNoteBtn.setOnClickListener {
             findNavController().navigate(R.id.action_mainScreen_to_addNoteScreen)
         }
     }
 
+    //Initialize recyclerview
     private fun recyclerviewInit() {
         val adapter = RecyclerviewAdapter(this)
         binding.recyclerView.adapter = adapter
@@ -53,24 +49,10 @@ class MainScreen : Fragment() {
         }
         binding.recyclerView.setHasFixedSize(true)
 
+        //Observe updates to the recyclerview
         noteVM.readAllNotes.observe(viewLifecycleOwner, { updatedNotes ->
             adapter.setNoteData(updatedNotes)
         })
-    }
-
-    private fun generateItem (max: Int) : ArrayList<Note> {
-        val list = ArrayList<Note>()
-        val fakeTitles = arrayListOf("This is an example of a shorter title", "Here is a slightly larger one that doesn't work", "This one is small")
-        val fakeDates = arrayListOf("May 3, 2021", "September 14, 2020", "April 25, 2021")
-        val colorList = arrayListOf("orange", "blue", "purple", "pink", "green")
-        for (i in 0 until max) {
-            val rnds = (0..2).random()
-            val rnds2 = (0..4).random()
-            val newNote = Note(1, fakeTitles[rnds] + i, "", fakeDates[rnds], colorList[rnds2])
-            list += newNote
-        }
-
-        return list
     }
 
     override fun onDestroyView() {

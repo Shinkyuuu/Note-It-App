@@ -9,7 +9,7 @@
     tools:context=".views.fragments.MainScreen">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/mainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/addNoteBtn"
+        android:id="@+id/createNoteBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="68dp"
@@ -46,7 +46,6 @@
         app:layout_constraintHeight_percent="0.75"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
         app:layout_constraintVertical_bias="1.0" />
-
 </androidx.constraintlayout.motion.widget.MotionLayout>

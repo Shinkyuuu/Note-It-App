@@ -25,32 +25,37 @@ class UpdateNoteScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentUpdateNoteScreenBinding.inflate(inflater, container, false)
+        //ViewModel
         noteVM = ViewModelProvider(this).get(NoteVM::class.java)
+        //ViewBinding
+        _binding = FragmentUpdateNoteScreenBinding.inflate(inflater, container, false)
 
         setTexts()
         updateNoteBtnLstnr()
         updateNoteBackBtnLstnr()
-
         return binding.root
     }
 
+    //Add the note's title and body to the editTexts
     private fun setTexts() {
         binding.noteTitleEditTextU.setText(args.currentNote.title)
         binding.noteBodyEditTextU.setText(args.currentNote.body)
         binding.todaysDateU.text = CurrentDate().currentDate()
     }
 
+    //After pressing updatNoteBtn, update note in database
     private fun updateNoteBtnLstnr() {
         binding.updateNoteBtn.setOnClickListener { updateNote() }
     }
 
+    //After pressing updateNoteBacnBtn, navigate to mainScreen
     private fun updateNoteBackBtnLstnr() {
         binding.updateNoteBackBtn.setOnClickListener {
             findNavController().navigate(R.id.action_updateNoteScreen_to_mainScreen)
         }
     }
 
+    //Create updated note and update the database
     private fun updateNote() {
         val noteTitle = binding.noteTitleEditTextU.text.toString()
         val noteBody = binding.noteBodyEditTextU.text.toString()
@@ -62,7 +67,6 @@ class UpdateNoteScreen : Fragment() {
             val updatedNote = Note(noteId, noteTitle, noteBody, noteDate, noteColor)
 
             noteVM.updateNote(updatedNote)
-
             findNavController().navigate(R.id.action_updateNoteScreen_to_mainScreen)
             Toast.makeText(requireContext(), "Noted!", Toast.LENGTH_SHORT).show()
         } else {
@@ -70,6 +74,7 @@ class UpdateNoteScreen : Fragment() {
         }
     }
 
+    //Check if note contains any contents
     private fun checkInput(title: String, body: String) : Boolean {
         if (title.isEmpty() && body.isEmpty()) {
             return false

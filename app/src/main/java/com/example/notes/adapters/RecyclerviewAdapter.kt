@@ -28,6 +28,7 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         holder.dateView.text = currentItem.date
         holder.colorView.background = generateColor(currentItem.color)
 
+        //If user clicks on the note, open the note update screen
         holder.bodyView.setOnClickListener {
             val action = MainScreenDirections.actionMainScreenToUpdateNoteScreen(currentItem)
 
@@ -35,6 +36,7 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         }
     }
 
+    //Change the color of the note's background
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun generateColor(color: String) : Drawable {
         return when (color) {
@@ -47,6 +49,7 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         }
     }
 
+    //retrieve the notes from the database (upon screen initialization and note update)
     fun setNoteData(noteList: List<Note>) {
         this.noteList = noteList
         notifyDataSetChanged()

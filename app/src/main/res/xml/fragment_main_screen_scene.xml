@@ -23,7 +23,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:alpha="0"
-            android:id="@+id/textView"
+            android:id="@+id/mainTitle"
             android:layout_marginTop="16dp"
             motion:layout_constraintHorizontal_bias="0.056" />
         <Constraint
@@ -32,7 +32,7 @@
             motion:layout_constraintHorizontal_bias="0.0"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            motion:layout_constraintTop_toBottomOf="@+id/textView"
+            motion:layout_constraintTop_toBottomOf="@+id/mainTitle"
             motion:layout_constraintHeight_percent="0.9"
             android:id="@+id/recyclerView"
             android:layout_marginTop="16dp"
@@ -47,7 +47,7 @@
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="60dp"
-            android:id="@+id/addNoteBtn"
+            android:id="@+id/createNoteBtn"
             motion:layout_constraintBottom_toTopOf="@+id/recyclerView"
             motion:layout_constraintVertical_bias="0.75" />
     </ConstraintSet>
