@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_main_screen" >
         <action
             android:id="@+id/action_mainScreen_to_addNoteScreen"
-            app:destination="@id/addNoteScreen" />
+            app:destination="@id/addNoteScreen"
+            app:enterAnim="@anim/fade_up_in" />
         <action
             android:id="@+id/action_mainScreen_to_updateNoteScreen"
             app:destination="@id/updateNoteScreen" />
@@ -24,7 +25,8 @@
         tools:layout="@layout/fragment_add_note_screen" >
         <action
             android:id="@+id/action_addNoteScreen_to_mainScreen"
-            app:destination="@id/mainScreen" />
+            app:destination="@id/mainScreen"
+            app:enterAnim="@anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/updateNoteScreen"
@@ -33,7 +35,8 @@
         tools:layout="@layout/fragment_update_note_screen" >
         <action
             android:id="@+id/action_updateNoteScreen_to_mainScreen"
-            app:destination="@id/mainScreen" />
+            app:destination="@id/mainScreen"
+            app:enterAnim="@anim/fade_in" />
         <argument
             android:name="currentNote"
             app:argType="com.example.notes.objects.Note" />
