@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notes.R
 import com.example.notes.adapters.RecyclerviewAdapter
 import com.example.notes.databinding.FragmentMainScreenBinding
+import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
 class MainScreen : Fragment() {
@@ -35,7 +36,8 @@ class MainScreen : Fragment() {
     //After pressing createNoteBtn, navigate to addNoteScreen
     private fun addNoteScreenListener() {
         binding.createNoteBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_mainScreen_to_addNoteScreen)
+            val action = MainScreenDirections.actionMainScreenToAddTitleScreen(Note(0))
+            findNavController().navigate(action)
         }
     }
 

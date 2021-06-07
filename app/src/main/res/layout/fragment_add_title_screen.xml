@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.fragments.AddTitleScreen">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/noteTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:background="@color/dark_gray"
+        android:hint="@string/TITLE"
+        android:textColorHint="@color/green"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:counterEnabled="true"
+        app:counterMaxLength="100"
+        app:counterTextColor="@color/purple"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/noteTitleEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dark_gray"
+            android:gravity="top|center"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:maxLength="100"
+            android:scrollbars="vertical"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="-106dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/addTitleBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="100dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:theme="@style/backButtonStyle"
+        android:background="@drawable/ripple_add_note_bg"
+        android:text="@string/BACK"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addTitleDoneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="100dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:theme="@style/doneButtonStyle"
+        android:background="@drawable/ripple_add_note_bg"
+        android:text="@string/DONE"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,16 +8,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.notes.R
-import com.example.notes.databinding.FragmentAddNoteScreenBinding
+import com.example.notes.databinding.FragmentAddBodyScreenBinding
 import com.example.notes.objects.CurrentDate
 import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
-class AddNoteScreen : Fragment() {
+class AddBodyScreen : Fragment() {
     private lateinit var noteVM : NoteVM
-    private var _binding : FragmentAddNoteScreenBinding? = null
+    private var _binding : FragmentAddBodyScreenBinding? = null
     private val binding get() = _binding!!
+    private val args by navArgs<AddBodyScreenArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +28,8 @@ class AddNoteScreen : Fragment() {
         //ViewModel
         noteVM = ViewModelProvider(this).get(NoteVM::class.java)
         //ViewBinding
-        _binding = FragmentAddNoteScreenBinding.inflate(inflater, container, false)
+        _binding = FragmentAddBodyScreenBinding.inflate(inflater, container, false)
+        binding.noteBodyEditText.setText(args.newNote.body)
         binding.todaysDate.text = CurrentDate().currentDate()
 
         addNoteBtnLstnr()
@@ -45,22 +48,24 @@ class AddNoteScreen : Fragment() {
     //After pressing addNoteBackBtn, navigate to mainScreen
     private fun addNoteBackBtnLstnr() {
         binding.addNoteBackBtn.setOnClickListener{
-            findNavController().navigate(R.id.action_addNoteScreen_to_mainScreen)
+            val newNote = Note(args.newNote.id, args.newNote.title,
+                binding.noteBodyEditText.text.toString().trim())
+            val action = AddBodyScreenDirections.actionAddBodyScreenToAddTitleScreen(newNote)
+            findNavController().navigate(action)
         }
     }
 
     //Create a note from the editTexts and add it to database
     private fun addNote() {
-        val noteTitle = binding.noteTitleEditText.text.toString()
-        val noteBody = binding.noteBodyEditText.text.toString()
+        val noteTitle = args.newNote.title
+        val noteBody = binding.noteBodyEditText.text.toString().trim()
         val noteDate = binding.todaysDate.text.toString()
         val noteColor = "blue"
 
         if (checkInput(noteTitle, noteBody)) {
-            val newNote = Note(0, noteTitle, noteBody, noteDate, noteColor)
-
+            val newNote = Note(args.newNote.id, noteTitle, noteBody, noteDate, noteColor)
             noteVM.addNote(newNote)
-            findNavController().navigate(R.id.action_addNoteScreen_to_mainScreen)
+            findNavController().navigate(R.id.action_addBodyScreen_to_mainScreen)
             Toast.makeText(requireContext(), "Noted!", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(requireContext(), "Forgetting something?", Toast.LENGTH_SHORT).show()

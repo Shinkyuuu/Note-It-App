@@ -11,22 +11,27 @@
         android:label="fragment_main_screen"
         tools:layout="@layout/fragment_main_screen" >
         <action
-            android:id="@+id/action_mainScreen_to_addNoteScreen"
-            app:destination="@id/addNoteScreen"
-            app:enterAnim="@anim/fade_up_in" />
-        <action
             android:id="@+id/action_mainScreen_to_updateNoteScreen"
             app:destination="@id/updateNoteScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_addTitleScreen"
+            app:destination="@id/addTitleScreen" />
     </fragment>
     <fragment
-        android:id="@+id/addNoteScreen"
-        android:name="com.example.notes.views.fragments.AddNoteScreen"
-        android:label="fragment_add_note_screen"
-        tools:layout="@layout/fragment_add_note_screen" >
+        android:id="@+id/addBodyScreen"
+        android:name="com.example.notes.views.fragments.AddBodyScreen"
+        android:label="fragment_add_body_screen"
+        tools:layout="@layout/fragment_add_body_screen" >
         <action
-            android:id="@+id/action_addNoteScreen_to_mainScreen"
+            android:id="@+id/action_addBodyScreen_to_mainScreen"
             app:destination="@id/mainScreen"
             app:enterAnim="@anim/fade_in" />
+        <action
+            android:id="@+id/action_addBodyScreen_to_addTitleScreen"
+            app:destination="@id/addTitleScreen" />
+        <argument
+            android:name="newNote"
+            app:argType="com.example.notes.objects.Note" />
     </fragment>
     <fragment
         android:id="@+id/updateNoteScreen"
@@ -39,6 +44,21 @@
             app:enterAnim="@anim/fade_in" />
         <argument
             android:name="currentNote"
+            app:argType="com.example.notes.objects.Note" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTitleScreen"
+        android:name="com.example.notes.views.fragments.AddTitleScreen"
+        android:label="fragment_add_title_screen"
+        tools:layout="@layout/fragment_add_title_screen" >
+        <action
+            android:id="@+id/action_addTitleScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+        <action
+            android:id="@+id/action_addTitleScreen_to_addBodyScreen"
+            app:destination="@id/addBodyScreen" />
+        <argument
+            android:name="newNote"
             app:argType="com.example.notes.objects.Note" />
     </fragment>
 </navigation>

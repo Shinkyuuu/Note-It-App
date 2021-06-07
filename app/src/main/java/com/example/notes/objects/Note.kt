@@ -10,8 +10,8 @@ import kotlinx.android.parcel.Parcelize
 data class Note(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val title: String,
-    val body: String,
-    val date: String,
-    val color: String
+    var title: String = "",
+    var body: String = "",
+    var date: String = "",
+    var color: String = ""
     ): Parcelable

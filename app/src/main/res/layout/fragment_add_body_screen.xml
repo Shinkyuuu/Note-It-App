@@ -5,45 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_gray"
-    tools:context=".views.fragments.AddNoteScreen"
+    tools:context=".views.fragments.AddBodyScreen"
     android:orientation="vertical">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/noteTitleLayout"
-        android:layout_weight="5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/dark_gray"
-        android:hint="@string/TITLE"
-        app:counterTextColor="@color/purple"
-        app:counterEnabled="true"
-        android:textColorHint="@color/orange"
-        app:boxStrokeWidth="0dp"
-        app:counterMaxLength="100"
-        app:boxStrokeWidthFocused="0dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/noteTitleEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/dark_gray"
-            android:gravity="start"
-            android:inputType="text"
-            android:maxLength="100"
-            android:lines="1"
-            android:scrollbars="vertical"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/todaysDate"
         android:layout_weight="3"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="5dp"
         android:paddingStart="17dp"
         android:paddingEnd="17dp"
@@ -53,7 +23,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteBodyLayout"
-        android:layout_weight="87"
+        android:layout_weight="92"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
