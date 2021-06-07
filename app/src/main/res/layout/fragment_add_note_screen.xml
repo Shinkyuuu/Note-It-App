@@ -8,37 +8,14 @@
     tools:context=".views.fragments.AddNoteScreen"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/addNoteBackBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="#00000000"
-            android:foreground="@drawable/ripple_add_note_bg"/>
-
-        <Button
-            android:id="@+id/addNoteBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="10dp"
-            android:background="#00000000"
-            android:foreground="@drawable/ripple_add_note_bg"
-            tools:ignore="RelativeOverlap" />
-    </RelativeLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteTitleLayout"
+        android:layout_weight="5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
         android:background="@color/dark_gray"
         android:hint="@string/TITLE"
         app:counterTextColor="@color/purple"
@@ -64,20 +41,23 @@
 
     <TextView
         android:id="@+id/todaysDate"
+        android:layout_weight="3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="5dp"
+        android:paddingStart="17dp"
         android:text="@string/PLACEHOLDER"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:textColor="@color/light_gray"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/noteBodyLayout"
+        android:layout_weight="87"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:background="@color/dark_gray"
         android:hint="@string/NOTEIT"
         android:textColorHint="@color/green"
@@ -98,4 +78,41 @@
             android:textSize="20sp"
             android:windowSoftInputMode="adjustPan" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_weight="5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addNoteBackBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="25dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:theme="@style/backButtonStyle"
+            android:background="@drawable/ripple_add_note_bg"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/addNoteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:theme="@style/doneButtonStyle"
+            android:background="@drawable/ripple_add_note_bg"
+            android:text="Done"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            tools:ignore="RelativeOverlap" />
+    </RelativeLayout>
 </LinearLayout>

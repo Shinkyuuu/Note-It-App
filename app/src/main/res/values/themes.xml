@@ -16,4 +16,12 @@
         <item name="android:windowBackground">@color/dark_gray</item>
         <item name="android:colorBackground">@color/dark_gray</item>
     </style>
+
+    <style name="backButtonStyle">
+        <item name="colorPrimary">@color/darker_gray</item>
+    </style>
+
+    <style name="doneButtonStyle">
+        <item name="colorPrimary">@color/green</item>
+    </style>
 </resources>
