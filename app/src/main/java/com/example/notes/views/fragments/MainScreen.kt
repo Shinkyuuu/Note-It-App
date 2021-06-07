@@ -1,19 +1,16 @@
 package com.example.notes.views.fragments
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.notes.R
 import com.example.notes.adapters.RecyclerviewAdapter
 import com.example.notes.databinding.FragmentMainScreenBinding
-import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
 class MainScreen : Fragment() {

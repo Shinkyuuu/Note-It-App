@@ -42,10 +42,11 @@
     <TextView
         android:id="@+id/todaysDate"
         android:layout_weight="3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
         android:paddingStart="17dp"
+        android:paddingEnd="17dp"
         android:text="@string/PLACEHOLDER"
         android:textSize="15sp"
         android:textColor="@color/light_gray"/>
@@ -95,7 +96,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:theme="@style/backButtonStyle"
             android:background="@drawable/ripple_add_note_bg"
-            android:text="Back"
+            android:text="@string/BACK"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textAllCaps="false"/>
@@ -109,7 +110,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:theme="@style/doneButtonStyle"
             android:background="@drawable/ripple_add_note_bg"
-            android:text="Done"
+            android:text="@string/DONE"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textAllCaps="false"

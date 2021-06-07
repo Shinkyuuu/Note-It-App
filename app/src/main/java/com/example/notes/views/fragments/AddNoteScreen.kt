@@ -1,7 +1,6 @@
 package com.example.notes.views.fragments
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +30,7 @@ class AddNoteScreen : Fragment() {
         binding.todaysDate.text = CurrentDate().currentDate()
 
         addNoteBtnLstnr()
-        addNoteBackBtnlstnr()
+        addNoteBackBtnLstnr()
 
         return binding.root
     }
@@ -44,7 +43,7 @@ class AddNoteScreen : Fragment() {
     }
 
     //After pressing addNoteBackBtn, navigate to mainScreen
-    private fun addNoteBackBtnlstnr() {
+    private fun addNoteBackBtnLstnr() {
         binding.addNoteBackBtn.setOnClickListener{
             findNavController().navigate(R.id.action_addNoteScreen_to_mainScreen)
         }

@@ -4,4 +4,6 @@
     <string name="TITLE">Title</string>
     <string name="NOTEIT">Note It!</string>
     <string name="PLACEHOLDER">Lorem Ipsum</string>
+    <string name="BACK">Back</string>
+    <string name="DONE">Done</string>
 </resources>
