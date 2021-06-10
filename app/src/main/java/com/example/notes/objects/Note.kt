@@ -13,5 +13,6 @@ data class Note(
     var title: String = "",
     var body: String = "",
     var date: String = "",
-    var color: String = ""
+    var color: String = "",
+    var selected: Boolean = false
     ): Parcelable

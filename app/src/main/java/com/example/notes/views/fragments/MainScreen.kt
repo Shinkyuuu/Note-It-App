@@ -14,7 +14,8 @@ import com.example.notes.databinding.FragmentMainScreenBinding
 import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
-class MainScreen : Fragment() {
+class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
+    var adapter = RecyclerviewAdapter(this)
     private lateinit var noteVM: NoteVM
     private var _binding : FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
@@ -43,7 +44,6 @@ class MainScreen : Fragment() {
 
     //Initialize recyclerview
     private fun recyclerviewInit() {
-        val adapter = RecyclerviewAdapter(this)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -54,6 +54,20 @@ class MainScreen : Fragment() {
         noteVM.readAllNotes.observe(viewLifecycleOwner, { updatedNotes ->
             adapter.setNoteData(updatedNotes)
         })
+    }
+
+    private fun deleteNotesListener() {
+        adapter.deleteNotes()
+    }
+
+    override fun turnOnSelectMode() {
+        TODO("Show the delete button and cancel selection button")
+    }
+
+    private fun turnOffSelectMode() {
+        adapter.unselectAll()
+        TODO("Hide the delete button and cancel selection button")
+
     }
 
     override fun onDestroyView() {
