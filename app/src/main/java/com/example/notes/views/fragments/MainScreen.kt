@@ -75,3 +75,5 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         _binding = null
     }
 }
+
+//This is a test
