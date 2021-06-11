@@ -24,12 +24,11 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewHolder {
         val binding = NoteLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-
         return RecyclerviewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerviewHolder, position: Int) {
-        var currentItem = noteList[position]
+        val currentItem = noteList[position]
         holder.titleView.text = currentItem.title
         holder.dateView.text = currentItem.date
         holder.colorView.background = generateColor(currentItem.color)
