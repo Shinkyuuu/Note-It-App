@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.notes.R
 import com.example.notes.adapters.RecyclerviewAdapter
 import com.example.notes.databinding.FragmentMainScreenBinding
 import com.example.notes.objects.Note
@@ -30,6 +29,7 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
         addNoteScreenListener()
+        turnOnSelectMode()
         recyclerviewInit()
         return binding.root
     }
@@ -61,7 +61,10 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
     }
 
     override fun turnOnSelectMode() {
-        TODO("Show the delete button and cancel selection button")
+        binding.mainTitle.setOnLongClickListener {
+            binding.motionScene.transitionToEnd()
+            return@setOnLongClickListener true
+        }
     }
 
     private fun turnOffSelectMode() {
