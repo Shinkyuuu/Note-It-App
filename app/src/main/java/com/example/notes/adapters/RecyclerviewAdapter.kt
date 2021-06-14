@@ -2,6 +2,7 @@ package com.example.notes.adapters
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
+import android.text.TextUtils.indexOf
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RelativeLayout
@@ -41,14 +42,10 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         }
 
         holder.bodyView.setOnLongClickListener {
-            var selectCurrentItem = selectNoteList[position]
+            val selectCurrentItem = selectNoteList[position]
             selectCurrentItem.selected = !selectCurrentItem.selected
 
-            holder.colorView.background =
-                if (selectCurrentItem.selected) generateColor("Green") else generateColor(
-                    selectCurrentItem.color
-                )
-            println("Done $position ${currentItem.id}")
+            holder.colorView.background = if (selectCurrentItem.selected) generateColor("Green") else generateColor(selectCurrentItem.color)
             return@setOnLongClickListener true
         }
     }
@@ -76,11 +73,18 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         notifyDataSetChanged()
     }
 
-    //Delete the  selected notes
-    fun deleteNotes() {
-        TODO("ADD DELETE FUNCTION FROM VIEWMODEL")
-    }
+    //Send notes that are marked for deletion to mainScreen
+    fun receiveToDeleteNotes() : List<Note> {
+        val toDeleteNotes : MutableList<Note> = ArrayList()
 
+        for (note in selectNoteList) {
+            if (note.selected) {
+                toDeleteNotes.add(noteList[selectNoteList.indexOf(note)])
+            }
+        }
+
+        return toDeleteNotes
+    }
 
     //Unselect all selected notes
     fun unselectAll() {
@@ -102,5 +106,4 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
     interface AdapterInterface {
         fun turnOnSelectMode()
     }
-
 }

@@ -16,7 +16,7 @@ import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
 class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
-    var adapter = RecyclerviewAdapter(this)
+    private var adapter = RecyclerviewAdapter(this)
     private lateinit var noteVM: NoteVM
     private var _binding : FragmentMainScreenBinding? = null
     private val binding get() = _binding!!
@@ -32,6 +32,7 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
 
         recyclerViewTransitionFix()
         addNoteScreenListener()
+        deleteNotesListener()
         turnOnSelectMode()
         turnOffSelectMode()
         recyclerviewInit()
@@ -71,7 +72,12 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
     }
 
     private fun deleteNotesListener() {
-        adapter.deleteNotes()
+        binding.deleteNoteBtn.setOnClickListener {
+            val toDeleteNotes = adapter.receiveToDeleteNotes()
+            noteVM.deleteNotes(toDeleteNotes)
+            adapter.notifyDataSetChanged()
+            binding.motionScene.transitionToStart()
+        }
     }
 
     override fun turnOnSelectMode() {
@@ -82,7 +88,7 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
     }
 
     private fun turnOffSelectMode() {
-        binding.deleteNoteBtn.setOnClickListener {
+        binding.unselectNoteBtn.setOnClickListener {
             adapter.unselectAll()
             binding.motionScene.transitionToStart()
         }

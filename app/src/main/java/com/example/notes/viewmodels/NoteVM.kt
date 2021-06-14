@@ -31,4 +31,8 @@ class NoteVM(app: Application) : AndroidViewModel(app) {
             repo.updateNote(note)
         }
     }
+
+    fun deleteNotes(notes: List<Note>) {
+        //Put something here
+    }
 }
