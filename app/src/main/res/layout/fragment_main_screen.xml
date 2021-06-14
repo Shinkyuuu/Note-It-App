@@ -1,82 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_gray"
-    app:layoutDescription="@xml/fragment_main_screen_scene"
-    tools:context=".views.fragments.MainScreen"
-    android:id="@+id/motionScene">
+    tools:context=".views.fragments.MainScreen">
 
-    <TextView
-        android:id="@+id/mainTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="Note It!"
-        android:textColor="@color/white"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <Button
-        android:id="@+id/unselectNoteBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="68dp"
-        android:background="#00000000"
-        android:foreground="@color/green"
-        android:textColor="@color/dark_gray"
-        app:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
-        app:layout_constraintEnd_toEndOf="@+id/createNoteBtn"
-        app:layout_constraintStart_toStartOf="@+id/createNoteBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/deleteNoteBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="68dp"
-        android:background="#00000000"
-        android:foreground="@color/orange"
-        android:textColor="@color/dark_gray"
-        app:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
-        app:layout_constraintEnd_toEndOf="@+id/createNoteBtn"
-        app:layout_constraintStart_toStartOf="@+id/createNoteBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/createNoteBtn"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="68dp"
-        android:background="#00000000"
-        android:foreground="@drawable/ripple_add_note_bg"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/dark_gray"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="210dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:clipToPadding="false"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.75"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
-        app:layout_constraintVertical_bias="1.0" />
-</androidx.constraintlayout.motion.widget.MotionLayout>
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_main_screen_scene"
+        android:id="@+id/motionScene">
+
+            <TextView
+                android:id="@+id/mainTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:text="@string/NOTEIT"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.056"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/unselectNoteBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="68dp"
+                android:background="#00000000"
+                android:foreground="@color/green"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
+                app:layout_constraintEnd_toEndOf="@+id/createNoteBtn"
+                app:layout_constraintStart_toStartOf="@+id/createNoteBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/deleteNoteBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="68dp"
+                android:background="#00000000"
+                android:foreground="@color/orange"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
+                app:layout_constraintEnd_toEndOf="@+id/createNoteBtn"
+                app:layout_constraintStart_toStartOf="@+id/createNoteBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/createNoteBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="68dp"
+                android:background="#00000000"
+                android:foreground="@drawable/ripple_add_note_bg"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/dark_gray"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_editor_absoluteX="210dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.75"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainTitle"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

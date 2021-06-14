@@ -1,5 +1,6 @@
 package com.example.notes.views.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.notes.R
 import com.example.notes.adapters.RecyclerviewAdapter
 import com.example.notes.databinding.FragmentMainScreenBinding
 import com.example.notes.objects.Note
@@ -28,18 +30,13 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         //ViewBinding
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
 
+        recyclerViewTransitionFix()
         addNoteScreenListener()
         turnOnSelectMode()
+        turnOffSelectMode()
         recyclerviewInit()
-        return binding.root
-    }
 
-    //After pressing createNoteBtn, navigate to addNoteScreen
-    private fun addNoteScreenListener() {
-        binding.createNoteBtn.setOnClickListener {
-            val action = MainScreenDirections.actionMainScreenToAddTitleScreen(Note(0))
-            findNavController().navigate(action)
-        }
+        return binding.root
     }
 
     //Initialize recyclerview
@@ -56,21 +53,39 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         })
     }
 
+    //Fixes recyclerView animation not working after selecting a note within it.
+    @SuppressLint("ClickableViewAccessibility")
+    private fun recyclerViewTransitionFix() {
+        binding.recyclerView.setOnTouchListener { _, event ->
+            binding.motionScene.onTouchEvent(event)
+            return@setOnTouchListener false
+        }
+    }
+
+    //After pressing createNoteBtn, navigate to addNoteScreen
+    private fun addNoteScreenListener() {
+        binding.createNoteBtn.setOnClickListener {
+            val action = MainScreenDirections.actionMainScreenToAddTitleScreen(Note(0))
+            findNavController().navigate(action)
+        }
+    }
+
     private fun deleteNotesListener() {
         adapter.deleteNotes()
     }
 
     override fun turnOnSelectMode() {
         binding.mainTitle.setOnLongClickListener {
-            binding.motionScene.transitionToEnd()
+            binding.motionScene.transitionToState(R.id.end)
             return@setOnLongClickListener true
         }
     }
 
     private fun turnOffSelectMode() {
-        adapter.unselectAll()
-        TODO("Hide the delete button and cancel selection button")
-
+        binding.deleteNoteBtn.setOnClickListener {
+            adapter.unselectAll()
+            binding.motionScene.transitionToStart()
+        }
     }
 
     override fun onDestroyView() {
@@ -78,5 +93,3 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         _binding = null
     }
 }
-
-//This is a test
