@@ -21,6 +21,7 @@ import com.example.notes.views.fragments.MainScreenDirections
 class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<RecyclerviewAdapter.RecyclerviewHolder>() {
     private var noteList = emptyList<Note>()
     private var selectNoteList = emptyList<Note>()
+    private var selectCounter = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerviewHolder {
         val binding = NoteLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -45,7 +46,20 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
             val selectCurrentItem = selectNoteList[position]
             selectCurrentItem.selected = !selectCurrentItem.selected
 
-            holder.colorView.background = if (selectCurrentItem.selected) generateColor("Green") else generateColor(selectCurrentItem.color)
+
+            if (selectCurrentItem.selected) {
+                if (selectCounter == 0) context.turnOnSelectMode()
+
+                selectCounter++
+                holder.colorView.background =generateColor("Green")
+            } else {
+                if (selectCounter == 1) context.turnOffSelectMode()
+
+                selectCounter--
+                holder.colorView.background =generateColor(selectCurrentItem.color)
+            }
+
+            println("COUNTER $selectCounter ${selectCurrentItem.selected}")
             return@setOnLongClickListener true
         }
     }
@@ -67,7 +81,6 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
     //retrieve the notes from the database (upon screen initialization and note update)
     fun setNoteData(noteList: List<Note>) {
         this.noteList = noteList
-
         if (selectNoteList.isEmpty()) selectNoteList = noteList
 
         notifyDataSetChanged()
@@ -91,6 +104,7 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         for (note in selectNoteList) {
             note.selected = false
         }
+        selectCounter = 0
         notifyDataSetChanged()
     }
 
@@ -101,9 +115,5 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         val dateView: TextView = binding.noteDate
         val colorView: RelativeLayout = binding.noteColor
         val bodyView: CardView = binding.note
-    }
-
-    interface AdapterInterface {
-        fun turnOnSelectMode()
     }
 }

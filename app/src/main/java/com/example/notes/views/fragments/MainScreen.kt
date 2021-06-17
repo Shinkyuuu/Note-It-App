@@ -15,7 +15,7 @@ import com.example.notes.databinding.FragmentMainScreenBinding
 import com.example.notes.objects.Note
 import com.example.notes.viewmodels.NoteVM
 
-class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
+class MainScreen : Fragment() {
     private var adapter = RecyclerviewAdapter(this)
     private lateinit var noteVM: NoteVM
     private var _binding : FragmentMainScreenBinding? = null
@@ -33,8 +33,6 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         recyclerViewTransitionFix()
         addNoteScreenListener()
         deleteNotesListener()
-        turnOnSelectMode()
-        turnOffSelectMode()
         recyclerviewInit()
 
         return binding.root
@@ -75,23 +73,17 @@ class MainScreen : Fragment(), RecyclerviewAdapter.AdapterInterface {
         binding.deleteNoteBtn.setOnClickListener {
             val toDeleteNotes = adapter.receiveToDeleteNotes()
             noteVM.deleteNotes(toDeleteNotes)
-            adapter.notifyDataSetChanged()
-            binding.motionScene.transitionToStart()
-        }
-    }
-
-    override fun turnOnSelectMode() {
-        binding.mainTitle.setOnLongClickListener {
-            binding.motionScene.transitionToState(R.id.end)
-            return@setOnLongClickListener true
-        }
-    }
-
-    private fun turnOffSelectMode() {
-        binding.unselectNoteBtn.setOnClickListener {
             adapter.unselectAll()
-            binding.motionScene.transitionToStart()
+            turnOffSelectMode()
         }
+    }
+
+    fun turnOnSelectMode() {
+        binding.motionScene.transitionToState(R.id.end)
+    }
+
+    fun turnOffSelectMode() {
+        binding.motionScene.transitionToStart()
     }
 
     override fun onDestroyView() {
