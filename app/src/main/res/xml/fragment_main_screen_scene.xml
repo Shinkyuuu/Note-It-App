@@ -5,103 +5,67 @@
 
     <Transition
         motion:constraintSetStart="@+id/start"
-        motion:constraintSetEnd="@+id/end1" >
-        <OnSwipe
-            motion:touchAnchorId="@+id/recyclerView"/>
-    </Transition>
-
-    <Transition
-        motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end" >
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/end1" >
         <Constraint
-            android:layout_height="wrap_content"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:alpha="0"
-            android:id="@+id/mainTitle"
-            android:layout_marginTop="16dp"
-            motion:layout_constraintHorizontal_bias="0.056" />
-        <Constraint
-            android:layout_height="0dp"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintHorizontal_bias="0.0"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="match_parent"
-            motion:layout_constraintTop_toBottomOf="@+id/mainTitle"
-            motion:layout_constraintHeight_percent="0.9"
-            android:id="@+id/recyclerView"
-            android:layout_marginTop="16dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintVertical_bias="1.0" />
-        <Constraint
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="16dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="60dp"
-            android:id="@+id/createNoteBtn"
+            android:layout_marginRight="16dp"
+            motion:layout_constraintTop_toTopOf="@+id/mainTitle"
             motion:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            motion:layout_constraintVertical_bias="0.75" />
-        <Constraint
-            android:layout_height="60dp"
-            motion:layout_constraintTop_toTopOf="@id/createNoteBtn"
-            motion:layout_constraintStart_toStartOf="@id/createNoteBtn"
-            motion:layout_constraintEnd_toEndOf="@id/createNoteBtn"
+            motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="60dp"
-            android:id="@+id/unselectNoteBtn"
-            motion:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
-            motion:layout_constraintVertical_bias="0.75" />
-        <Constraint
-            android:layout_height="60dp"
-            motion:layout_constraintTop_toTopOf="@id/createNoteBtn"
-            motion:layout_constraintStart_toStartOf="@id/createNoteBtn"
-            motion:layout_constraintEnd_toEndOf="@id/createNoteBtn"
-            android:layout_width="60dp"
-            android:id="@+id/deleteNoteBtn"
-            motion:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
-            motion:layout_constraintVertical_bias="0.75" />
+            motion:layout_constraintVertical_bias="0.0"
+            android:id="@+id/createNoteBtn" />
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/end">
+    <ConstraintSet android:id="@+id/end" >
         <Constraint
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="68dp"
+            android:alpha="0"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toStartOf="@+id/createNoteBtn"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/mainTitle"
+            motion:layout_constraintHorizontal_bias="0.029" />
+        <Constraint
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_height="60dp"
+            android:layout_marginTop="32dp"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintEnd_toStartOf="@id/deleteNoteBtn"
+            motion:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="60dp"
-            android:id="@+id/createNoteBtn"
-            motion:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            motion:layout_constraintVertical_bias="0.0"/>
+            android:id="@+id/createNoteBtn" />
         <Constraint
             android:layout_height="60dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="68dp"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="60dp"
-            android:id="@+id/unselectNoteBtn"
-            motion:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            motion:layout_constraintVertical_bias="0.0"/>
-        <Constraint
-            android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="68dp"
-            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="10dp"
+            motion:layout_constraintTop_toTopOf="@id/createNoteBtn"
+            motion:layout_constraintStart_toStartOf="@id/createNoteBtn"
             motion:layout_constraintEnd_toStartOf="@id/unselectNoteBtn"
             android:layout_width="60dp"
             android:id="@+id/deleteNoteBtn"
-            motion:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            motion:layout_constraintVertical_bias="0.0"/>
+            motion:layout_constraintBottom_toBottomOf="@+id/createNoteBtn"
+            motion:layout_constraintEnd_toEndOf="@id/createNoteBtn"
+            motion:layout_constraintVertical_bias="0.0"
+            motion:layout_constraintHorizontal_bias="1.0" />
+        <Constraint
+            android:layout_height="60dp"
+            android:layout_marginEnd="15dp"
+            motion:layout_constraintTop_toTopOf="@id/deleteNoteBtn"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="60dp"
+            android:id="@+id/unselectNoteBtn"
+            motion:layout_constraintBottom_toBottomOf="@+id/deleteNoteBtn"
+            motion:layout_constraintVertical_bias="0.0"
+            android:layout_marginRight="15dp" />
     </ConstraintSet>
 </MotionScene>
