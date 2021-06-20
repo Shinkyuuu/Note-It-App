@@ -29,11 +29,12 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         return RecyclerviewHolder(binding)
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: RecyclerviewHolder, position: Int) {
         val currentItem = noteList[position]
         holder.titleView.text = currentItem.title
         holder.dateView.text = currentItem.date
-        holder.colorView.background = generateColor(currentItem.color)
+        holder.colorView.background = context.resources.getDrawable(R.drawable.note_enter_info_bg)
 
         //If user clicks on the note, open the note update screen
         holder.bodyView.setOnClickListener {
@@ -51,12 +52,12 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
                 if (selectCounter == 0) context.turnOnSelectMode()
 
                 selectCounter++
-                holder.colorView.background =generateColor("Green")
+                holder.colorView.background = context.resources.getDrawable(R.drawable.note_selected_bg)
             } else {
                 if (selectCounter == 1) context.turnOffSelectMode()
 
                 selectCounter--
-                holder.colorView.background =generateColor(selectCurrentItem.color)
+                holder.colorView.background = context.resources.getDrawable(R.drawable.note_enter_info_bg)
             }
 
             println("COUNTER $selectCounter ${selectCurrentItem.selected}")
@@ -64,7 +65,7 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
         }
     }
 
-
+    //(CURRENTLY NOT USED)
     //Change the color of the note's background
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun generateColor(color: String): Drawable {

@@ -13,4 +13,11 @@
     <color name="purple">#EFD3D7</color>
     <color name="blue">#FEEAFA</color>
     <color name="green">#DEE2FF</color>
+
+    <color name="main_background">#EDE2DF</color>
+    <color name="text_color">#4B4F4B</color>
+    <color name="hint_color">#676767</color>
+    <color name="date_color">#A0A0A0</color>
+    <color name="done_color">#6C7D6D</color>
+    <color name="back_color">#DFD4D0</color>
 </resources>

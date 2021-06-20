@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/dark_gray"
+    android:background="@color/main_background"
     tools:context=".views.fragments.UpdateNoteScreen">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -16,11 +16,11 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
-        android:background="@color/dark_gray"
+        android:background="@color/main_background"
         android:hint="@string/TITLE"
-        app:counterTextColor="@color/purple"
+        app:counterTextColor="@color/date_color"
         app:counterEnabled="true"
-        android:textColorHint="@color/orange"
+        android:textColorHint="@color/hint_color"
         app:boxStrokeWidth="0dp"
         app:counterMaxLength="100"
         app:boxStrokeWidthFocused="0dp">
@@ -29,13 +29,13 @@
             android:id="@+id/noteTitleEditTextU"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/dark_gray"
+            android:background="@drawable/note_enter_info_bg"
             android:gravity="start"
             android:inputType="text"
             android:maxLength="100"
             android:lines="1"
             android:scrollbars="vertical"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color"
             android:textSize="30sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,7 +48,7 @@
         android:paddingEnd="17dp"
         android:layout_weight="3"
         android:text="@string/PLACEHOLDER"
-        android:textColor="@color/light_gray"
+        android:textColor="@color/date_color"
         android:textSize="15sp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -59,9 +59,9 @@
         android:paddingTop="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:background="@color/dark_gray"
+        android:background="@color/main_background"
         android:hint="@string/NOTEIT"
-        android:textColorHint="@color/green"
+        android:textColorHint="@color/hint_color"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp">
 
@@ -69,13 +69,13 @@
             android:id="@+id/noteBodyEditTextU"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/dark_gray"
+            android:background="@drawable/note_enter_info_bg"
             android:gravity="start"
             android:inputType="textCapSentences|textMultiLine"
             android:lines="90"
             android:maxLength="3000"
             android:scrollbars="vertical"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color"
             android:textSize="20sp"
             android:windowSoftInputMode="adjustPan" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -91,23 +91,23 @@
 
         <Button
             android:id="@+id/updateNoteBackBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="60dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="5dp"
             style="?android:attr/borderlessButtonStyle"
             android:theme="@style/backButtonStyle"
             android:background="@drawable/ripple_add_note_bg"
             android:text="@string/BACK"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color"
             android:textSize="20sp"
             android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/updateNoteBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="25dp"
+            android:layout_marginEnd="5dp"
             style="?android:attr/borderlessButtonStyle"
             android:theme="@style/doneButtonStyle"
             android:background="@drawable/ripple_add_note_bg"
