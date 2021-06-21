@@ -8,11 +8,12 @@
     tools:context=".views.fragments.AddTitleScreen">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/noteTitleLayout"
+        android:id="@+id/noteEditLayout"
+        android:transitionName="editTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="85dp"
         android:layout_marginRight="5dp"
         android:background="@color/main_background"
         android:hint="@string/TITLE"
@@ -41,35 +42,43 @@
             tools:layout_editor_absoluteY="-106dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/addTitleBackBtn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="50dp"
-        style="?android:attr/borderlessButtonStyle"
-        android:theme="@style/backButtonStyle"
-        android:background="@drawable/ripple_add_note_bg"
-        android:text="@string/BACK"
-        android:textColor="@color/text_color"
-        android:textSize="20sp"
-        android:textAllCaps="false"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/addTitleDoneBtn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="50dp"
-        style="?android:attr/borderlessButtonStyle"
-        android:theme="@style/doneButtonStyle"
-        android:background="@drawable/ripple_add_note_bg"
-        android:text="@string/DONE"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/addTitleBackBtn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/ripple_add_note_bg"
+            android:text="@string/BACK"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            android:theme="@style/backButtonStyle" />
+
+        <Button
+            android:id="@+id/addTitleDoneBtn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ripple_add_note_bg"
+            android:text="@string/DONE"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:theme="@style/doneButtonStyle"
+            tools:ignore="RelativeOverlap" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
