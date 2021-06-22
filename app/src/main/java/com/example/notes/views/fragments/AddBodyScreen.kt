@@ -59,7 +59,6 @@ class AddBodyScreen : Fragment() {
             val action = AddBodyScreenDirections.actionAddBodyScreenToAddTitleScreen(newNote)
             val extras = FragmentNavigatorExtras(binding.noteEditLayout to "editTitle")
             findNavController().navigate(action, extras)
-
         }
     }
 
@@ -68,7 +67,6 @@ class AddBodyScreen : Fragment() {
         val noteTitle = args.newNote.title
         val noteBody = binding.noteBodyEditText.text.toString().trim()
         val noteDate = binding.todaysDate.text.toString()
-        val noteColor = "blue"
 
         if (checkInput(noteTitle, noteBody)) {
             val newNote = Note(args.newNote.id, noteTitle, noteBody, noteDate)
