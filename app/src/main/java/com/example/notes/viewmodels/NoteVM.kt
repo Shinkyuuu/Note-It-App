@@ -33,6 +33,10 @@ class NoteVM(app: Application) : AndroidViewModel(app) {
     }
 
     fun deleteNotes(notes: List<Note>) {
-        //Put something here
+        viewModelScope.launch(Dispatchers.IO) {
+            for (note in notes) {
+                repo.deleteNote(note)
+            }
+        }
     }
 }

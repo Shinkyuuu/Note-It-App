@@ -1,6 +1,7 @@
 package com.example.notes.views.fragments
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,6 +34,7 @@ class MainScreen : Fragment() {
         recyclerViewTransitionFix()
         addNoteScreenListener()
         deleteNotesListener()
+        unselectNoteBtnLstnr()
         recyclerviewInit()
 
         return binding.root
@@ -69,10 +71,30 @@ class MainScreen : Fragment() {
         }
     }
 
+    //After pressing deleteNoteBtn, navigate to alertDialog then delete notes.
     private fun deleteNotesListener() {
         binding.deleteNoteBtn.setOnClickListener {
             val toDeleteNotes = adapter.receiveToDeleteNotes()
+            deleteNotesAlertDialog(toDeleteNotes)
+        }
+    }
+
+    //Create Alert Dialog asking if user intends to delete notes
+    private fun deleteNotesAlertDialog(toDeleteNotes: List<Note>) {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") {_, _->
             noteVM.deleteNotes(toDeleteNotes)
+            adapter.unselectAll()
+            turnOffSelectMode()
+        }
+        builder.setNegativeButton("No") {_, _-> }
+        builder.setTitle("Are you sure?")
+        builder.create().show()
+    }
+
+    //After pressing unselectNoteBtn, unselect all notes and turn off select mode
+    private fun unselectNoteBtnLstnr() {
+        binding.unselectNoteBtn.setOnClickListener {
             adapter.unselectAll()
             turnOffSelectMode()
         }

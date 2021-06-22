@@ -30,12 +30,14 @@
             android:id="@+id/action_addBodyScreen_to_mainScreen"
             app:destination="@id/mainScreen"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@+id/mainScreen"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_addBodyScreen_to_addTitleScreen"
             app:destination="@id/addTitleScreen"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:popUpTo="@+id/addTitleScreen"
+            app:popUpToInclusive="true"/>
         <argument
             android:name="newNote"
             app:argType="com.example.notes.objects.Note" />
@@ -49,7 +51,9 @@
             android:id="@+id/action_updateNoteScreen_to_mainScreen"
             app:destination="@id/mainScreen"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@+id/mainScreen"
+            app:popUpToInclusive="true"/>
         <argument
             android:name="currentNote"
             app:argType="com.example.notes.objects.Note" />
@@ -63,12 +67,12 @@
             android:id="@+id/action_addTitleScreen_to_mainScreen"
             app:destination="@id/mainScreen"
             app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:exitAnim="@anim/fade_out"
+            app:popUpTo="@id/mainScreen"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_addTitleScreen_to_addBodyScreen"
-            app:destination="@id/addBodyScreen"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out" />
+            app:destination="@id/addBodyScreen" />
         <argument
             android:name="newNote"
             app:argType="com.example.notes.objects.Note" />

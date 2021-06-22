@@ -1,12 +1,14 @@
 package com.example.notes.views.fragments
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.notes.R
@@ -25,6 +27,11 @@ class AddBodyScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //Shared Transition Animation
+        val animation = TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
+        sharedElementEnterTransition = animation
+        sharedElementReturnTransition = animation
+
         //ViewModel
         noteVM = ViewModelProvider(this).get(NoteVM::class.java)
         //ViewBinding
@@ -45,13 +52,13 @@ class AddBodyScreen : Fragment() {
         }
     }
 
-    //After pressing addNoteBackBtn, navigate to mainScreen
+    //After pressing addNoteBackBtn, navigate to addTitleScreen
     private fun addNoteBackBtnLstnr() {
         binding.addNoteBackBtn.setOnClickListener{
-            val newNote = Note(args.newNote.id, args.newNote.title,
-                binding.noteBodyEditText.text.toString().trim())
+            val newNote = Note(args.newNote.id, args.newNote.title, binding.noteBodyEditText.text.toString().trim())
             val action = AddBodyScreenDirections.actionAddBodyScreenToAddTitleScreen(newNote)
-            findNavController().navigate(action)
+            val extras = FragmentNavigatorExtras(binding.noteEditLayout to "editTitle")
+            findNavController().navigate(action, extras)
         }
     }
 
@@ -60,10 +67,9 @@ class AddBodyScreen : Fragment() {
         val noteTitle = args.newNote.title
         val noteBody = binding.noteBodyEditText.text.toString().trim()
         val noteDate = binding.todaysDate.text.toString()
-        val noteColor = "blue"
 
         if (checkInput(noteTitle, noteBody)) {
-            val newNote = Note(args.newNote.id, noteTitle, noteBody, noteDate, noteColor)
+            val newNote = Note(args.newNote.id, noteTitle, noteBody, noteDate)
             noteVM.addNote(newNote)
             findNavController().navigate(R.id.action_addBodyScreen_to_mainScreen)
             Toast.makeText(requireContext(), "Noted!", Toast.LENGTH_SHORT).show()

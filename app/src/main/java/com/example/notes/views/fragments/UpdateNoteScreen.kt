@@ -60,11 +60,10 @@ class UpdateNoteScreen : Fragment() {
         val noteTitle = binding.noteTitleEditTextU.text.toString()
         val noteBody = binding.noteBodyEditTextU.text.toString()
         val noteDate = binding.todaysDateU.text.toString()
-        val noteColor = args.currentNote.color
         val noteId = args.currentNote.id
 
         if (checkInput(noteTitle, noteBody)) {
-            val updatedNote = Note(noteId, noteTitle, noteBody, noteDate, noteColor)
+            val updatedNote = Note(noteId, noteTitle, noteBody, noteDate)
 
             noteVM.updateNote(updatedNote)
             findNavController().navigate(R.id.action_updateNoteScreen_to_mainScreen)

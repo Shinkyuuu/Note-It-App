@@ -38,44 +38,37 @@ class RecyclerviewAdapter(val context: MainScreen) : RecyclerView.Adapter<Recycl
 
         //If user clicks on the note, open the note update screen
         holder.bodyView.setOnClickListener {
-            val action = MainScreenDirections.actionMainScreenToUpdateNoteScreen(currentItem)
-
-            holder.itemView.findNavController().navigate(action)
+            if (selectCounter > 0) {
+                toggleSelectModeVisual(holder, position)
+            } else {
+                val action = MainScreenDirections.actionMainScreenToUpdateNoteScreen(currentItem)
+                holder.itemView.findNavController().navigate(action)
+            }
         }
 
+
         holder.bodyView.setOnLongClickListener {
-            val selectCurrentItem = selectNoteList[position]
-            selectCurrentItem.selected = !selectCurrentItem.selected
-
-
-            if (selectCurrentItem.selected) {
-                if (selectCounter == 0) context.turnOnSelectMode()
-
-                selectCounter++
-                holder.colorView.background = context.resources.getDrawable(R.drawable.note_selected_bg)
-            } else {
-                if (selectCounter == 1) context.turnOffSelectMode()
-
-                selectCounter--
-                holder.colorView.background = context.resources.getDrawable(R.drawable.note_enter_info_bg)
-            }
-
-            println("COUNTER $selectCounter ${selectCurrentItem.selected}")
+            toggleSelectModeVisual(holder, position)
             return@setOnLongClickListener true
         }
     }
 
-    //(CURRENTLY NOT USED)
-    //Change the color of the note's background
+    //Change the background of the selected notes
     @SuppressLint("UseCompatLoadingForDrawables")
-    private fun generateColor(color: String): Drawable {
-        return when (color) {
-            "orange" -> context.resources.getDrawable(R.drawable.note_bg_orange)
-            "blue" -> context.resources.getDrawable(R.drawable.note_bg_blue)
-            "purple" -> context.resources.getDrawable(R.drawable.note_bg_purple)
-            "pink" -> context.resources.getDrawable(R.drawable.note_bg_pink)
-            "green" -> context.resources.getDrawable(R.drawable.note_bg_green)
-            else -> context.resources.getDrawable(R.drawable.note_bg_orange)
+    private fun toggleSelectModeVisual(holder: RecyclerviewHolder, position: Int) {
+        val selectCurrentItem = selectNoteList[position]
+        selectCurrentItem.selected = !selectCurrentItem.selected
+
+        if (selectCurrentItem.selected) {
+            if (selectCounter == 0) context.turnOnSelectMode()
+
+            selectCounter++
+            holder.colorView.background = context.resources.getDrawable(R.drawable.note_selected_bg)
+        } else {
+            if (selectCounter == 1) context.turnOffSelectMode()
+
+            selectCounter--
+            holder.colorView.background = context.resources.getDrawable(R.drawable.note_enter_info_bg)
         }
     }
 
