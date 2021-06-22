@@ -36,6 +36,7 @@ class MainScreen : Fragment() {
         deleteNotesListener()
         unselectNoteBtnLstnr()
         recyclerviewInit()
+        setEmptyRecyclerviewPicture()
 
         return binding.root
     }
@@ -51,6 +52,7 @@ class MainScreen : Fragment() {
         //Observe updates to the recyclerview
         noteVM.readAllNotes.observe(viewLifecycleOwner, { updatedNotes ->
             adapter.setNoteData(updatedNotes)
+            setEmptyRecyclerviewPicture()
         })
     }
 
@@ -60,6 +62,14 @@ class MainScreen : Fragment() {
         binding.recyclerView.setOnTouchListener { _, event ->
             binding.motionScene.onTouchEvent(event)
             return@setOnTouchListener false
+        }
+    }
+
+    private fun setEmptyRecyclerviewPicture() {
+        if (adapter.itemCount == 0) {
+            if (binding.doggiePic.visibility == View.INVISIBLE) binding.doggiePic.visibility = View.VISIBLE
+        } else {
+            if (binding.doggiePic.visibility != View.INVISIBLE) binding.doggiePic.visibility = View.INVISIBLE
         }
     }
 
