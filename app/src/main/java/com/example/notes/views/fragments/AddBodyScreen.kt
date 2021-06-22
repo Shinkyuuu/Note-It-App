@@ -57,8 +57,7 @@ class AddBodyScreen : Fragment() {
         binding.addNoteBackBtn.setOnClickListener{
             val newNote = Note(args.newNote.id, args.newNote.title, binding.noteBodyEditText.text.toString().trim())
             val action = AddBodyScreenDirections.actionAddBodyScreenToAddTitleScreen(newNote)
-            val extras = FragmentNavigatorExtras(binding.noteEditLayout to "editTitle")
-            findNavController().navigate(action, extras)
+            findNavController().navigate(action)
         }
     }
 

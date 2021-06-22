@@ -23,11 +23,6 @@ class AddTitleScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //Shared Element Animation
-        val animation = TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
-        sharedElementEnterTransition = animation
-        sharedElementReturnTransition = animation
-
         // Inflate the layout for this fragment
         _binding = FragmentAddTitleScreenBinding.inflate(inflater, container, false)
 
@@ -53,7 +48,6 @@ class AddTitleScreen : Fragment() {
         if (checkValidTitle(noteTitle)) {
             val newNote = Note(0, noteTitle, noteBody, noteDate)
             val action = AddTitleScreenDirections.actionAddTitleScreenToAddBodyScreen(newNote)
-
             val extras = FragmentNavigatorExtras(binding.noteEditLayout to "editBody")
             findNavController().navigate(action, extras)
         } else {
