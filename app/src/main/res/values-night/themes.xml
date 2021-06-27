@@ -2,18 +2,27 @@
     <!-- Base application theme. -->
     <style name="Theme.Notes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_gray</item>
-        <item name="colorPrimaryVariant">@color/dark_gray</item>
+        <item name="colorPrimary">@color/done_color</item>
+        <item name="colorPrimaryVariant">@color/back_color</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/orange</item>
-        <item name="colorSecondaryVariant">@color/orange</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/back_color</item>
+        <item name="colorSecondaryVariant">@color/back_color</item>
+        <item name="colorOnSecondary">@color/selected_color</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:navigationBarColor">@color/dark_gray</item>
-        <item name="android:windowBackground">@color/dark_gray</item>
-        <item name="android:colorBackground">@color/dark_gray</item>
+        <item name="android:navigationBarColor">@color/back_color</item>
+        <item name="android:windowBackground">@color/main_background</item>
+        <item name="android:colorBackground">@color/main_background</item>
+        <item name="colorPrimaryDark">@color/back_color</item>
+    </style>
+
+    <style name="backButtonStyle">
+        <item name="colorPrimary">@color/back_color</item>
+    </style>
+
+    <style name="doneButtonStyle">
+        <item name="colorPrimary">@color/done_color</item>
     </style>
 </resources>
