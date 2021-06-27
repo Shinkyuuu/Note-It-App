@@ -6,4 +6,8 @@
     <string name="PLACEHOLDER">Lorem Ipsum</string>
     <string name="BACK">Back</string>
     <string name="DONE">Done</string>
+
+    <string name="pen_icon">pen icon</string>
+    <string name="trash_icon">trash icon</string>
+    <string name="x_icon">x icon</string>
 </resources>
