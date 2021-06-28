@@ -19,6 +19,7 @@
         android:paddingEnd="17dp"
         android:text="@string/PLACEHOLDER"
         android:textSize="15sp"
+        android:fontFamily="@font/merriweather_light"
         android:textColor="@color/date_color"/>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -48,6 +49,7 @@
             android:scrollbars="vertical"
             android:textColor="@color/text_color"
             android:textSize="20sp"
+            android:fontFamily="@font/merriweather_light"
             android:windowSoftInputMode="adjustPan" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,6 +72,7 @@
             android:text="@string/BACK"
             android:textColor="@color/text_color"
             android:textSize="20sp"
+            android:fontFamily="@font/merriweather_light"
             android:textAllCaps="false"/>
 
         <Button
@@ -84,6 +87,7 @@
             android:text="@string/DONE"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:fontFamily="@font/merriweather_light"
             android:textAllCaps="false"
             tools:ignore="RelativeOverlap" />
     </RelativeLayout>

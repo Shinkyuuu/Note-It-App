@@ -38,6 +38,7 @@
             android:scrollbars="vertical"
             android:textColor="@color/text_color"
             android:textSize="30sp"
+            android:fontFamily="@font/merriweather_light"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="-106dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -64,6 +65,7 @@
             android:textAllCaps="false"
             android:textColor="@color/text_color"
             android:textSize="20sp"
+            android:fontFamily="@font/merriweather_light"
             android:theme="@style/backButtonStyle" />
 
         <Button
@@ -78,6 +80,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp"
+            android:fontFamily="@font/merriweather_light"
             android:theme="@style/doneButtonStyle"
             tools:ignore="RelativeOverlap" />
     </RelativeLayout>
