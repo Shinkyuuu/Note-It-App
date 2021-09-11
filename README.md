@@ -18,7 +18,7 @@ This is an app designed to simplify the act of jotting notes down, create shoppi
 <h3>◻️ Demonstration</h3>
 <img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png">
 
-Adding a Note | Editing a Note | Deleting Notes
+🖋 Adding a Note 🖋 | 📏 Editing a Note 📏 | 🗑 Deleting Notes 🗑
 ------------ | ------------- | -------------
 <img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
 
