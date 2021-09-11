@@ -1,5 +1,6 @@
-# Note-It-App
-<p align="center"><img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Note%20It%20Banner.PNG"></p>
+
+<p align="center"><img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Banner/Note%20It%20Banner.PNG"></p>
+<h1 align="center">Note It!</h1>
 
 # Description
 This is an app designed to simplify the act of jotting notes down, create shoppings lists, or to make to-do tasks. With no unnessary clutter, this app allows the user to mark things down on the fly. 
