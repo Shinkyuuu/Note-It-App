@@ -1,6 +1,6 @@
 
 <p align="center"><img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Banner.PNG"></p>
-<h1 align="center">✏️ Note It! 📋</h1>
+<h1 align="center">📋 Note It! 📋</h1>
 <p align="center"><b>An app to help the user add, remove, and edit notes!</b></p>
 <h3>◻️ Description</h3>
 <img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png">
@@ -27,4 +27,4 @@ This is an app designed to simplify the act of jotting notes down, create shoppi
 
 * The user can easily navigate through the entire app without confusion
 * There is no worry of stacking screens as they are pushed and popped as though they are a stack (the data structure)
-<img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Navigation.PNG">
+<p align="center"><img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Navigation.PNG" width="800"></p>
