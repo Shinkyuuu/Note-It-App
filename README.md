@@ -1,23 +1,35 @@
 
-<p align="center"><img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Banner.PNG"></p>
-<h1 align="center">✏️ Note It! 📋</h1>
+![Note It Banner](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Banner.PNG)
+<h1 align="center">📋 Note It! 📋</h1>
+<p align="center"><b>An app to help the user add, remove, and edit notes!</b></p>
 
-<h3 align="center">Description</h3>
-<img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border.png">
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
+
+🖋 Adding a Note 🖋 | 📏 Editing a Note 📏 | 🗑 Deleting Notes 🗑
+------------ | ------------- | -------------
+<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
+
+<h3>◻️ Description</h3>
+
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
 
 This is an app designed to simplify the act of jotting notes down, create shoppings lists, or to make to-do tasks. With no unnessary clutter, this app allows the user to mark things down on the fly. 
 
-<h3 align="center">Features</h3>
-<img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border.png">
+<h3>◻️ Features</h3>
+
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
 
 * User can add, edit, and delete notes seamlessly
 * Use can select multiple notes to delete at a time
 * The notes automatically have the current date attached to them
-* Works in portrait and landscape mode
+* Works in portrait and landscape mode 
 
-<h3 align="center">Demonstration</h3>
-<img src="https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border.png">
+<h3>◻️ User Navigation Path</h3>
 
-Adding a Note | Editing a Note | Deleting Notes
------------- | ------------- | -------------
-<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
+
+* The user can easily navigate through the entire app without confusion
+* There is no worry of stacking screens as they are pushed and popped as though they are a stack (the data structure)
+<br>
+
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Navigation.PNG)
