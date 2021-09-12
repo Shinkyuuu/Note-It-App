@@ -1,5 +1,5 @@
 
-![Note It Banner](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Banner.PNG)
+![Note It Banner](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Repo%20Banner%20v2.png)
 <h1 align="center">📋 Note It! 📋</h1>
 <p align="center"><b>An app to help the user add, remove, and edit notes!</b></p>
 
@@ -7,7 +7,7 @@
 
 🖋 Adding a Note 🖋 | 📏 Editing a Note 📏 | 🗑 Deleting Notes 🗑
 ------------ | ------------- | -------------
-<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
+<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=455> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=455> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=450>
 
 <h3>◻️ Description</h3>
 
