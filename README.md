@@ -7,7 +7,7 @@
 
 🖋 Adding a Note 🖋 | 📏 Editing a Note 📏 | 🗑 Deleting Notes 🗑
 ------------ | ------------- | -------------
-<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
+<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=455> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=455> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=450>
 
 <h3>◻️ Description</h3>
 
