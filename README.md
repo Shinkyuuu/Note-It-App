@@ -2,6 +2,13 @@
 ![Note It Banner](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Banner.PNG)
 <h1 align="center">📋 Note It! 📋</h1>
 <p align="center"><b>An app to help the user add, remove, and edit notes!</b></p>
+
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
+
+🖋 Adding a Note 🖋 | 📏 Editing a Note 📏 | 🗑 Deleting Notes 🗑
+------------ | ------------- | -------------
+<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
+
 <h3>◻️ Description</h3>
 
 ![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
@@ -16,14 +23,6 @@ This is an app designed to simplify the act of jotting notes down, create shoppi
 * Use can select multiple notes to delete at a time
 * The notes automatically have the current date attached to them
 * Works in portrait and landscape mode 
-
-<h3>◻️ Demonstration</h3>
-
-![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Border%202.png)
-
-🖋 Adding a Note 🖋 | 📏 Editing a Note 📏 | 🗑 Deleting Notes 🗑
------------- | ------------- | -------------
-<img src="http://g.recordit.co/Nm5uiOEOvA.gif" width=500> | <img src="http://g.recordit.co/R0dr5LTAad.gif" width=500> | <img src="http://g.recordit.co/MufRwP7cXs.gif" width=500>
 
 <h3>◻️ User Navigation Path</h3>
 
