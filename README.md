@@ -32,4 +32,4 @@ This is an app designed to simplify the act of jotting notes down, create shoppi
 * There is no worry of stacking screens as they are pushed and popped as though they are a stack (the data structure)
 <br>
 
-![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Navigation.PNG)
+![Border](https://github.com/Shinkyuuu/Note-It-App/blob/master/Repo%20Images/Note%20It%20Navigation%20v2.PNG)
